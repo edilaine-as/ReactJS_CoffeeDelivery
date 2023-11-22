@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import logoCoffeeDelivery from '../../assets/logo-coffee-delivery.svg'
+import logoCoffeeDelivery from '../../../public/logo-coffee-delivery.svg'
 import { HeaderContainer } from './styles'
 
 export function Header() {

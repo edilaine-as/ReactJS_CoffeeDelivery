@@ -5,6 +5,10 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
+  max-width: 1160px;
+  padding: 32px 20px;
+  margin: 0 auto;
+
   height: 6.5rem;
 
   nav {
