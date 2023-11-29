@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mixins } from '../../styles/mixins'
 
 export const IntroContainer = styled.div`
   max-width: 1160px;
@@ -14,17 +15,15 @@ export const IntroContainer = styled.div`
 export const IntroContent = styled.div`
   max-width: 588px;
   h1 {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
     color: ${(props) => props.theme['base-title']};
     margin-bottom: 1rem;
+    ${mixins.fonts.titleXL}
   }
 
   p {
-    font-size: 1.25rem;
     color: ${(props) => props.theme['base-subtitle']};
     margin-bottom: 4.125rem;
+    ${mixins.fonts.textL}
   }
 `
 
@@ -39,8 +38,8 @@ export const IconsContainer = styled.div`
       gap: 0.875rem;
 
       p {
-        font-size: 1rem;
         margin: 0;
+        ${mixins.fonts.textM}
       }
     }
   }
@@ -85,6 +84,7 @@ export const CoffeeList = styled.section`
 
   > h2 {
     color: ${(props) => props.theme['base-subtitle']};
+    ${mixins.fonts.titleL}
   }
 
   > div {

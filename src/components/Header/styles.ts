@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mixins } from '../../styles/mixins'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -33,7 +34,7 @@ export const HeaderContainer = styled.header`
 
       span {
         color: ${(props) => props.theme['purple-dark']};
-        font-size: 0.875rem;
+        ${mixins.fonts.textS}
       }
     }
 

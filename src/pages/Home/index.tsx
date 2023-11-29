@@ -1,5 +1,5 @@
 import { Header } from '../../components/Header'
-import { Card } from '../../components/Cart'
+import { Card } from '../../components/Card'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import introCoffeeDelivery from '../../../public/images/intro-coffee-delivery.svg'
 import {

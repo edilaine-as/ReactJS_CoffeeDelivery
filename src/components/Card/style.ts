@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mixins } from '../../styles/mixins'
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme['base-card']};
@@ -33,6 +34,7 @@ export const Tags = styled.div`
     background-color: ${(props) => props.theme['yellow-light']};
     color: ${({ theme }) => theme['yellow-dark']};
     text-transform: uppercase;
+    ${mixins.fonts.tag};
   }
 `
 
@@ -40,6 +42,8 @@ export const Title = styled.h3`
   margin-top: 16px;
 
   color: ${(props) => props.theme['base-subtitle']};
+
+  ${mixins.fonts.titleS}
 `
 
 export const Description = styled.span`
@@ -47,4 +51,30 @@ export const Description = styled.span`
   width: 100%;
 
   color: ${(props) => props.theme['base-label']};
+
+  ${mixins.fonts.textS}
+`
+
+export const Control = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 32px;
+`
+
+export const Price = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+
+  span:first-child {
+    ${mixins.fonts.textS};
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  span:last-child {
+    ${mixins.fonts.titleM};
+    color: ${(props) => props.theme['base-text']};
+  }
 `

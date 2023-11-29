@@ -1,4 +1,12 @@
-import { CoffeeImg, Container, Description, Tags, Title } from './style'
+import {
+  CoffeeImg,
+  Container,
+  Control,
+  Description,
+  Price,
+  Tags,
+  Title,
+} from './style'
 
 type Props = {
   coffee: {
@@ -25,6 +33,13 @@ export function Card({ coffee }: Props) {
       <Title>{coffee.title}</Title>
 
       <Description>{coffee.description}</Description>
+
+      <Control>
+        <Price>
+          <span>R$</span>
+          <span>{coffee.price.toFixed(2)}</span>
+        </Price>
+      </Control>
     </Container>
   )
 }
