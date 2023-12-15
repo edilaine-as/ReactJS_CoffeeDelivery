@@ -18,7 +18,6 @@ import { coffees } from '../../../data.json'
 export function Home() {
   return (
     <>
-      <Header />
       <IntroContainer>
         <IntroContent>
           <h1>Encontre o café perfeito para qualquer hora do dia</h1>
