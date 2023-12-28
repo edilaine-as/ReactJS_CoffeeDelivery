@@ -1,5 +1,20 @@
+import { AdressContent, OrderContainer, CartContent, CartContainer, Container, PaymentContent } from "./styles";
+
 export function Order(){
     return(
-        <h1>Order</h1>
+        <Container>
+            <OrderContainer>
+                <h2>Complete seu pedido</h2>
+
+                <AdressContent></AdressContent>
+
+                <PaymentContent></PaymentContent>
+            </OrderContainer>
+            <CartContainer>
+                <h2>Cafés selecionados</h2>
+
+                <CartContent></CartContent>
+            </CartContainer>
+        </Container>
     )
 }
