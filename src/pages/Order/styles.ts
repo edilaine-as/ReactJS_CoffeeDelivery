@@ -8,7 +8,7 @@ export const Container = styled.main`
     margin: 0 auto;
     padding: 2.5rem 1.25rem;
 `
-export const OrderContainer = styled.div`
+export const InfoOrderContainer = styled.div`
     width: 40rem;
 
     > h2 {
@@ -17,9 +17,13 @@ export const OrderContainer = styled.div`
     }
 `
 
-export const AdressContent = styled.div``
+export const AdressContainer = styled.div``
 
-export const CartContainer = styled.div`
+export const AdressHeading = styled.div``
+
+export const AdressForm = styled.div``
+
+export const OrderContainer = styled.div`
     width: 28rem;
 
     > h2 {
@@ -28,6 +32,6 @@ export const CartContainer = styled.div`
     }
 `
 
-export const CartContent = styled.div``
+export const CartContainer = styled.div``
 
-export const PaymentContent = styled.div``
+export const PaymentContainer = styled.div``

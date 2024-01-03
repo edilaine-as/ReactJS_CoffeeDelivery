@@ -1,20 +1,39 @@
-import { AdressContent, OrderContainer, CartContent, CartContainer, Container, PaymentContent } from "./styles";
+import { MapPin } from "phosphor-react";
+import { 
+        Container, 
+        InfoOrderContainer, 
+        AdressContainer, AdressHeading, AdressForm,
+        PaymentContainer,
+        OrderContainer, 
+        CartContainer, 
+} from "./styles";
 
 export function Order(){
     return(
         <Container>
-            <OrderContainer>
+            <InfoOrderContainer>
                 <h2>Complete seu pedido</h2>
 
-                <AdressContent></AdressContent>
+                <AdressContainer>
+                    <AdressHeading>
+                        <MapPin/>
+                        <div>
+                            <span>Endereço de Entrega</span>
+                            <p>Informe o endereço onde deseja receber seu pedido</p>
+                        </div>
+                    </AdressHeading>
+                    <AdressForm>
+                        
+                    </AdressForm>
+                </AdressContainer>
 
-                <PaymentContent></PaymentContent>
-            </OrderContainer>
-            <CartContainer>
+                <PaymentContainer></PaymentContainer>
+            </InfoOrderContainer>
+            <OrderContainer>
                 <h2>Cafés selecionados</h2>
 
-                <CartContent></CartContent>
-            </CartContainer>
+                <CartContainer></CartContainer>
+            </OrderContainer>
         </Container>
     )
 }
