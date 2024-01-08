@@ -14,14 +14,42 @@ export const InfoOrderContainer = styled.div`
     > h2 {
         color: ${(props) => props.theme['base-subtitle']};
         ${mixins.fonts.titleXS}
+        margin-bottom: 1rem;
     }
 `
 
-export const AdressContainer = styled.div``
+export const BaseContainer = styled.div`
+    background-color: ${(props) => props.theme['base-card']};
+    padding: 2.5rem;
+`
 
-export const AdressHeading = styled.div``
+export const AddressContainer = styled(BaseContainer)`
+    border-radius: 6px;
+`
 
-export const AdressForm = styled.div``
+export const Heading = styled.div`
+    display: flex;
+    gap: 8px;
+
+    div{
+        span{
+            ${mixins.fonts.textM}
+        }
+    
+        p{
+            ${mixins.fonts.textS}
+        }
+    }
+
+`
+
+export const AddressHeading = styled(Heading)`
+  svg {
+    color: ${props => props.theme["yellow-dark"]};
+  }
+`
+
+export const AddressForm = styled.div``
 
 export const OrderContainer = styled.div`
     width: 28rem;
@@ -34,4 +62,13 @@ export const OrderContainer = styled.div`
 
 export const CartContainer = styled.div``
 
-export const PaymentContainer = styled.div``
+export const PaymentContainer = styled(BaseContainer)`
+    margin-top: 0.75rem;
+    border-radius: 6px;
+`
+
+export const PaymentHeading = styled(Heading)`
+svg {
+    color: ${props => props.theme["purple"]};
+  }
+`
