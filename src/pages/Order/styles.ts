@@ -60,7 +60,8 @@ export const AddressForm = styled.div`
     'number fullAddress fullAddress'
     'neighborhood city state';
   grid-template-columns: 200px 1fr 60px;
-  grid-gap: 16px 12px;`
+  grid-gap: 16px 12px;
+`
 
 export const CartContainer = styled.div``
 
@@ -70,7 +71,7 @@ export const PaymentContainer = styled(BaseContainer)`
 `
 
 export const PaymentHeading = styled(Heading)`
-svg {
-    color: ${props => props.theme["purple"]};
-  }
+    svg {
+        color: ${props => props.theme["purple"]};
+    }
 `

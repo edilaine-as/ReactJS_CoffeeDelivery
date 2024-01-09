@@ -1,4 +1,4 @@
-import { CurrencyDollar, MapPin } from "phosphor-react";
+import { Bank, CreditCard, CurrencyDollar, MapPin } from "phosphor-react";
 import { 
         Container, 
         InfoContainer, 
@@ -8,6 +8,7 @@ import {
         PaymentHeading, 
 } from "./styles";
 import { TextInput } from "../../components/TextInput";
+import { RadioButton } from "../../components/RadioButton";
 
 export function Order(){
     return(
@@ -65,6 +66,18 @@ export function Order(){
                                 <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
                             </div>
                         </PaymentHeading>
+                        <RadioButton value="credit">
+                            <CreditCard size={16}/>
+                            <span>Cartão de crédito</span>
+                        </RadioButton>
+                        <RadioButton value="debit">
+                            <Bank size={16}/>
+                            <span>Cartão de débito</span>
+                        </RadioButton>
+                        <RadioButton value="cash">
+                            <Bank size={16}/>
+                            <span>Dinheiro</span>
+                        </RadioButton>
                     </PaymentContainer>
                 </form>
             </InfoContainer>
