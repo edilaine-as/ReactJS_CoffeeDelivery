@@ -8,8 +8,10 @@ export const Container = styled.main`
     margin: 0 auto;
     padding: 2.5rem 1.25rem;
 `
-export const InfoOrderContainer = styled.div`
-    width: 40rem;
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     > h2 {
         color: ${(props) => props.theme['base-subtitle']};
@@ -30,6 +32,7 @@ export const AddressContainer = styled(BaseContainer)`
 export const Heading = styled.div`
     display: flex;
     gap: 8px;
+    margin-bottom: 2rem;
 
     div{
         span{
@@ -49,16 +52,15 @@ export const AddressHeading = styled(Heading)`
   }
 `
 
-export const AddressForm = styled.div``
-
-export const OrderContainer = styled.div`
-    width: 28rem;
-
-    > h2 {
-        color: ${(props) => props.theme['base-subtitle']};
-        ${mixins.fonts.titleXS}
-    }
-`
+export const AddressForm = styled.div`
+  display: grid;
+  grid-template-areas:
+    'cep . .'
+    'street street street'
+    'number fullAddress fullAddress'
+    'neighborhood city state';
+  grid-template-columns: 200px 1fr 60px;
+  grid-gap: 16px 12px;`
 
 export const CartContainer = styled.div``
 
