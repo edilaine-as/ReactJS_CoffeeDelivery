@@ -1,5 +1,3 @@
-export function OrderSucess(){
-    return(
-        <h1>Order Sucess</h1>
-    )
+export function OrderSucess() {
+  return <h1>Order Sucess</h1>
 }
