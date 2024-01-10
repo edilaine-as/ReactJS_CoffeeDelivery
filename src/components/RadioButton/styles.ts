@@ -14,7 +14,10 @@ export const Container = styled.label`
   border: 1px solid transparent;
 
   text-transform: uppercase;
-  ${mixins.fonts.buttonM}
+
+  span{
+    ${mixins.fonts.buttonM};
+  }
 
   input {
     display: none;

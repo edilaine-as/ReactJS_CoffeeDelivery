@@ -8,6 +8,7 @@ import {
   PaymentContainer,
   CartContainer,
   PaymentHeading,
+  PaymentOptions,
 } from './styles'
 import { TextInput } from '../../components/TextInput'
 import { RadioButton } from '../../components/RadioButton'
@@ -71,20 +72,22 @@ export function Order() {
                 </p>
               </div>
             </PaymentHeading>
-            <div>
-              <RadioButton value="credit">
-                <CreditCard size={16} />
-                <span>Cartão de crédito</span>
-              </RadioButton>
-              <RadioButton value="debit">
-                <Bank size={16} />
-                <span>Cartão de débito</span>
-              </RadioButton>
-              <RadioButton value="cash">
-                <Bank size={16} />
-                <span>Dinheiro</span>
-              </RadioButton>
-            </div>
+            <PaymentOptions>
+              <div>
+                <RadioButton value="credit">
+                  <CreditCard size={16} />
+                  <span>Cartão de crédito</span>
+                </RadioButton>
+                <RadioButton value="debit">
+                  <Bank size={16} />
+                  <span>Cartão de débito</span>
+                </RadioButton>
+                <RadioButton value="cash">
+                  <Bank size={16} />
+                  <span>Dinheiro</span>
+                </RadioButton>
+              </div>
+            </PaymentOptions>
           </PaymentContainer>
         </form>
       </InfoContainer>

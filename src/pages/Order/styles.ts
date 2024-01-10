@@ -21,8 +21,14 @@ export const InfoContainer = styled.div`
 `
 
 export const BaseContainer = styled.div`
-  background-color: ${(props) => props.theme['base-card']};
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  width: 100%;
   padding: 2.5rem;
+  min-width: 640px;
+  background-color: ${(props) => props.theme['base-card']};
 `
 
 export const AddressContainer = styled(BaseContainer)`
@@ -32,11 +38,10 @@ export const AddressContainer = styled(BaseContainer)`
 export const Heading = styled.div`
   display: flex;
   gap: 8px;
-  margin-bottom: 2rem;
 
   div {
     span {
-      ${mixins.fonts.textM}
+      color: ${(props) => props.theme['base-subtitle']};
     }
 
     p {
@@ -62,8 +67,6 @@ export const AddressForm = styled.div`
   grid-gap: 16px 12px;
 `
 
-export const CartContainer = styled.div``
-
 export const PaymentContainer = styled(BaseContainer)`
   margin-top: 0.75rem;
   border-radius: 6px;
@@ -73,4 +76,26 @@ export const PaymentHeading = styled(Heading)`
   svg {
     color: ${(props) => props.theme.purple};
   }
+`
+
+export const PaymentOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+`
+
+export const CartContainer = styled.div`
+  padding: 2.5rem;
+  width: 100%;
+  min-width: 448px;
+
+  border-radius: 6px 36px;
+  background-color: ${(props) => props.theme['base-card']};
 `
