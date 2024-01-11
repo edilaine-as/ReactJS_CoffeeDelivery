@@ -1,8 +1,11 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import imgOrderSucess from '../../../public/img-order-sucess.svg'
 import { Info, Order, Container, Heading, InfoContent } from './styles'
+import { useTheme } from 'styled-components'
 
 export function OrderSucess() {
+  const theme = useTheme()
+
   return (
     <Container>
       <Order>
@@ -13,22 +16,28 @@ export function OrderSucess() {
         <Info>
           <InfoContent>
             <div>
-              <MapPin/>
+              <MapPin
+                color={theme.white}
+                style={{ backgroundColor: theme.purple }}
+                size={32}
+              />
               <div>
-                <span>Entrega em 
+                <span>
+                  Entrega em
                   <strong> Rua João Daniel Martinelli, 102</strong>
                 </span>
-                <span>
-                  Farrapos - Porto Alegre, RS
-                </span>
+                <span>Farrapos - Porto Alegre, RS</span>
               </div>
             </div>
 
             <div>
-              <Timer/>
+              <Timer
+                color={theme.white}
+                style={{ backgroundColor: theme.yellow }}
+                size={32}
+              />
               <div>
-                <span>Previsão de entrega
-                </span>
+                <span>Previsão de entrega</span>
                 <span>
                   <strong>20 min - 30 min</strong>
                 </span>
@@ -36,16 +45,18 @@ export function OrderSucess() {
             </div>
 
             <div>
-              <CurrencyDollar/>
+              <CurrencyDollar
+                color={theme.white}
+                style={{ backgroundColor: theme['yellow-dark'] }}
+                size={32}
+              />
               <div>
-                <span>Pagamento na entrega
-                </span>
+                <span>Pagamento na entrega</span>
                 <span>
                   <strong>Cartão de crédito</strong>
                 </span>
               </div>
             </div>
-
           </InfoContent>
         </Info>
       </Order>

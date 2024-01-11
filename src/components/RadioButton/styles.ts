@@ -15,7 +15,7 @@ export const Container = styled.label`
 
   text-transform: uppercase;
 
-  span{
+  span {
     ${mixins.fonts.buttonM};
   }
 
