@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 import { mixins } from '../../styles/mixins'
 
+export const Intro = styled.div`
+  position: relative;
+
+  img#hero-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    object-fit: cover;
+  }
+`
+
 export const IntroContainer = styled.div`
   max-width: 1160px;
   padding: 92px 20px;
