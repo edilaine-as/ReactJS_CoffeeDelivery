@@ -4,7 +4,7 @@ import { mixins } from '../../styles/mixins'
 export const Intro = styled.div`
   position: relative;
 
-  img#hero-bg{
+  img#intro-bg{
     position: absolute;
     top: 0;
     left: 0;

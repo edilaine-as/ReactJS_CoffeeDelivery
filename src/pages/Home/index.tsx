@@ -1,7 +1,7 @@
 import { Card } from '../../components/Card'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import introCoffeeDelivery from '../../../public/images/intro-coffee-delivery.svg'
-import heroBg from '../../../public/images/hero-bg.svg'
+import heroBg from '../../../public/images/intro-bg.svg'
 import {
   CoffeeContainer,
   CoffeeList,
@@ -62,7 +62,7 @@ export function Home() {
           </IntroContent>
           <img src={introCoffeeDelivery} alt="" />
         </IntroContainer>
-          <img src={heroBg} id="hero-bg" alt="" />
+          <img src={heroBg} id="intro-bg" alt="" />
       </Intro>
       <CoffeeList>
         <h2>Nossos cafés</h2>
