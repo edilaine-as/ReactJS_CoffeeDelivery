@@ -14,10 +14,10 @@ export type Actions =
   
 
 export function addItemAction(item: Item) {
-    return {
-        type: ActionTypes.ADD_ITEM,
-        payload: {
-        item,
-        },
-    } satisfies Actions
+  return {
+    type: ActionTypes.ADD_ITEM,
+    payload: {
+      item,
+    },
+  } satisfies Actions
 }

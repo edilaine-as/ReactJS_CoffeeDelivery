@@ -1,6 +1,7 @@
 import { ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
+import { useCart } from '../../hooks/useCart'
 import { QuantityInput } from '../QuantityInput'
 import {
   CoffeeImg,
@@ -28,6 +29,7 @@ export function Card({ coffee }: Props) {
   const theme = useTheme()
   const [quantity, setQuantity] = useState(1)
   const [isItemAdded, setIsItemAdded] = useState(false)
+  const { addItem } = useCart()
 
   function incrementQuantity(){
     setQuantity(state => state + 1)
@@ -38,6 +40,28 @@ export function Card({ coffee }: Props) {
       setQuantity(state => state - 1)
     }
   }
+
+  function handleAddItem(){
+    addItem({ id: coffee.id, quantity })
+    setIsItemAdded(true)
+    setQuantity(1)
+  }
+
+  useEffect(() => {
+    let timeout: number
+
+    if (isItemAdded) {
+      timeout = setTimeout(() => {
+        setIsItemAdded(false)
+      }, 1000)
+    }
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+  }, [isItemAdded])
 
   return (
     <Container>
@@ -64,7 +88,7 @@ export function Card({ coffee }: Props) {
             incrementQuantity={incrementQuantity}
             decrementQuantity={decrementQuantity}
           />
-          <button>
+          <button onClick={handleAddItem}>
             <ShoppingCart weight="fill" size={22} color={theme['base-card']}/>
           </button>
         </Order>
