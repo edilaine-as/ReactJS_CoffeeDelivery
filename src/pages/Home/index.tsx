@@ -24,8 +24,8 @@ export function Home() {
           <IntroContent>
             <h1>Encontre o café perfeito para qualquer hora do dia</h1>
             <p>
-              Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-              hora
+              Com o Coffee Delivery você recebe seu café onde estiver, a
+              qualquer hora
             </p>
 
             <IconsContainer>
@@ -62,7 +62,7 @@ export function Home() {
           </IntroContent>
           <img src={introCoffeeDelivery} alt="" />
         </IntroContainer>
-          <img src={heroBg} id="intro-bg" alt="" />
+        <img src={heroBg} id="introBg" alt="" />
       </Intro>
       <CoffeeList>
         <h2>Nossos cafés</h2>

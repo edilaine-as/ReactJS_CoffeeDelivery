@@ -4,11 +4,12 @@ import { mixins } from '../../styles/mixins'
 export const Intro = styled.div`
   position: relative;
 
-  img#intro-bg{
+  img#introBg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
+    max-height: 544px;
     object-fit: cover;
   }
 `

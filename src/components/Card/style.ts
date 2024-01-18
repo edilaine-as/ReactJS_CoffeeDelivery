@@ -83,7 +83,7 @@ export const Order = styled.div`
   display: flex;
   gap: 8px;
 
-  > button{
+  > button {
     background-color: ${(props) => props.theme['purple-dark']};
     border: none;
     border-radius: 6px;
