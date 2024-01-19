@@ -148,6 +148,8 @@ export const RemoveButton = styled.button`
   padding: 6.5px 8px;
   background-color: ${(props) => props.theme['base-button']};
 
+  cursor: pointer;
+
   svg{
     color: ${props => props.theme.purple}
   }
@@ -156,5 +158,44 @@ export const RemoveButton = styled.button`
     text-transform: uppercase;
     ${mixins.fonts.buttonM}
   }
-  
+`
+
+export const InfoOrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 24px 0;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    span{
+      ${mixins.fonts.textS}
+    }
+    span:last-child{
+      ${mixins.fonts.textM}
+    }
+  }
+
+  div:last-child{
+    span {
+      ${mixins.fonts.textL};
+      font-weight: bold;
+    }
+  }
+`
+
+export const ConfirmOrderButton = styled.button`
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  padding: 12px; 
+
+  background-color: ${(props) => props.theme.yellow};
+  color: ${(props) => props.theme.white};
+  text-transform: uppercase;
+
+  cursor: pointer;
 `
