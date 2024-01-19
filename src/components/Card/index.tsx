@@ -31,17 +31,17 @@ export function Card({ coffee }: Props) {
   const [isItemAdded, setIsItemAdded] = useState(false)
   const { addItem } = useCart()
 
-  function incrementQuantity(){
-    setQuantity(state => state + 1)
+  function incrementQuantity() {
+    setQuantity((state) => state + 1)
   }
 
-  function decrementQuantity(){
-    if(quantity > 1){
-      setQuantity(state => state - 1)
+  function decrementQuantity() {
+    if (quantity > 1) {
+      setQuantity((state) => state - 1)
     }
   }
 
-  function handleAddItem(){
+  function handleAddItem() {
     addItem({ id: coffee.id, quantity })
     setIsItemAdded(true)
     setQuantity(1)
@@ -89,7 +89,7 @@ export function Card({ coffee }: Props) {
             decrementQuantity={decrementQuantity}
           />
           <button onClick={handleAddItem}>
-            <ShoppingCart weight="fill" size={22} color={theme['base-card']}/>
+            <ShoppingCart weight="fill" size={22} color={theme['base-card']} />
           </button>
         </Order>
       </Control>
