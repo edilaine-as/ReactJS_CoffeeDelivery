@@ -34,9 +34,15 @@ import { coffees } from '../../../data.json'
 import { QuantityInput } from '../../components/QuantityInput'
 
 export function Order() {
-  const { cart } = useCart()
+  const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity } = useCart()
 
-  
+  function handleIncrementQuantity(itemId: string){
+    incrementCoffeeQuantity(itemId);
+  }
+
+  function handleDecrementQuantity(itemId: string){
+    decrementCoffeeQuantity(itemId);
+  }
 
   return (
     <Container>
@@ -134,8 +140,8 @@ export function Order() {
                             <div>
                               <QuantityInput 
                                 quantity={itemCart.quantity}
-                                incrementQuantity={}
-                                decrementQuantity={}
+                                incrementQuantity={() => handleIncrementQuantity(itemCart.id)}
+                                decrementQuantity={() => handleDecrementQuantity(itemCart.id)}
                               />
                             </div>
                           </div>

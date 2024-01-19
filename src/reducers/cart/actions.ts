@@ -42,7 +42,7 @@ export function incrementCoffeeQuantityAction(itemId: Item['id']) {
 
 export function decrementCoffeeQuantityAction(itemId: Item['id']) {
   return {
-    type: ActionTypes.INCREMENT_ITEM_QUANTITY,
+    type: ActionTypes.DECREMENT_ITEM_QUANTITY,
     payload: {
       itemId,
     },

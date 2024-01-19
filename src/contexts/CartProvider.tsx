@@ -6,8 +6,8 @@ interface CartContextType {
   cart: Item[]
   orders: Order[]
   addItem: (item: Item) => void
-  incrementCoffeeCount: (id: Item['id']) => void
-  decrementCoffeeCount: (id: Item['id']) => void
+  incrementCoffeeQuantity: (id: Item['id']) => void
+  decrementCoffeeQuantity: (id: Item['id']) => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -44,12 +44,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch(addItemAction(item))
   }
 
-  function incrementCoffeeCount(ItemId: Item['id']){
-    dispatch(incrementCoffeeQuantityAction(ItemId))
+  function incrementCoffeeQuantity(itemId: Item['id']){
+    dispatch(incrementCoffeeQuantityAction(itemId))
   }
 
-  function decrementCoffeeCount(ItemId: Item['id']){
-    dispatch(decrementCoffeeQuantityAction(ItemId))
+  function decrementCoffeeQuantity(itemId: Item['id']){
+    dispatch(decrementCoffeeQuantityAction(itemId))
   }
 
   useEffect(() => {
@@ -66,8 +66,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addItem,
         cart,
         orders,
-        incrementCoffeeCount,
-        decrementCoffeeCount,
+        incrementCoffeeQuantity,
+        decrementCoffeeQuantity,
       }}
     >
       {children}
