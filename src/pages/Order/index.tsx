@@ -1,4 +1,4 @@
-import { Bank, CreditCard, CurrencyDollar, MapPin } from 'phosphor-react'
+import { Bank, CreditCard, CurrencyDollar, MapPin, Trash } from 'phosphor-react'
 import {
   Container,
   InfoContainer,
@@ -9,6 +9,9 @@ import {
   CartContainer,
   PaymentHeading,
   PaymentOptions,
+  ItemCardContainer,
+  ItemCardInfo,
+  RemoveButton,
 } from './styles'
 import { TextInput } from '../../components/TextInput'
 import { RadioButton } from '../../components/RadioButton'
@@ -133,20 +136,27 @@ export function Order() {
                   {cart.map((itemCart) => {
                     if (itemCart.id === coffee.id) {
                       return (
-                        <div>
-                          <img src={coffee.image} alt={coffee.title} />
+                        <ItemCardContainer>
                           <div>
-                            <span>{coffee.title}</span>
-                            <div>
-                              <QuantityInput 
-                                quantity={itemCart.quantity}
-                                incrementQuantity={() => handleIncrementQuantity(itemCart.id)}
-                                decrementQuantity={() => handleDecrementQuantity(itemCart.id)}
-                              />
-                            </div>
+                            <img src={coffee.image} alt={coffee.title} />
+                            <ItemCardInfo>
+                              <span>{coffee.title}</span>
+                              <div>
+                                <QuantityInput 
+                                  quantity={itemCart.quantity}
+                                  incrementQuantity={() => handleIncrementQuantity(itemCart.id)}
+                                  decrementQuantity={() => handleDecrementQuantity(itemCart.id)}
+                                />
+
+                                <RemoveButton type="button">
+                                  <Trash/>
+                                  <span>Remover</span>
+                                </RemoveButton>
+                              </div>
+                            </ItemCardInfo>
                           </div>
-                          <aside>{coffee.price}</aside>
-                        </div>
+                          <aside>R$ {coffee.price.toFixed(2).toString().replace('.', ',')}</aside>
+                        </ItemCardContainer>
                       )
                     }
                   })}

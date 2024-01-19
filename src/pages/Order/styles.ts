@@ -99,3 +99,62 @@ export const CartContainer = styled.div`
   border-radius: 6px 36px;
   background-color: ${(props) => props.theme['base-card']};
 `
+
+export const ItemCardContainer = styled.div`
+  display: flex;
+  gap: 50px;
+  padding: 24px 0;
+  border-bottom: 1px solid ${(props) => props.theme['base-button']};
+
+  > div{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+
+    > img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  > aside {
+    font-weight: bold;
+  }
+`
+
+export const ItemCardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  span{
+    ${mixins.fonts.textM}
+  }
+
+  div{
+    display: flex;
+    gap: 8px;
+  }
+`
+
+export const RemoveButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border: none;
+  border-radius: 6px;
+  padding: 6.5px 8px;
+  background-color: ${(props) => props.theme['base-button']};
+
+  svg{
+    color: ${props => props.theme.purple}
+  }
+
+  span{
+    text-transform: uppercase;
+    ${mixins.fonts.buttonM}
+  }
+  
+`
