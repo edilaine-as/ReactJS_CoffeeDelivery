@@ -29,7 +29,15 @@ const newOrder = z.object({
 
 export type OrderInfo = z.infer<typeof newOrder>
 
+import { useCart } from '../../hooks/useCart'
+import { coffees } from '../../../data.json'
+import { QuantityInput } from '../../components/QuantityInput'
+
 export function Order() {
+  const { cart } = useCart()
+
+  
+
   return (
     <Container>
       <InfoContainer>
@@ -111,7 +119,36 @@ export function Order() {
       <InfoContainer>
         <h2>Cafés selecionados</h2>
 
-        <CartContainer></CartContainer>
+        <CartContainer>
+          <div>
+            {coffees.map((coffee) => {
+              return(
+                <div key={coffee.id}>
+                  {cart.map((itemCart) => {
+                    if (itemCart.id === coffee.id) {
+                      return (
+                        <div>
+                          <img src={coffee.image} alt={coffee.title} />
+                          <div>
+                            <span>{coffee.title}</span>
+                            <div>
+                              <QuantityInput 
+                                quantity={itemCart.quantity}
+                                incrementQuantity={}
+                                decrementQuantity={}
+                              />
+                            </div>
+                          </div>
+                          <aside>{coffee.price}</aside>
+                        </div>
+                      )
+                    }
+                  })}
+                </div>
+              )
+            })}
+          </div>
+        </CartContainer>
       </InfoContainer>
     </Container>
   )

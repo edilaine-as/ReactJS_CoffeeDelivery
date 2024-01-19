@@ -32,6 +32,11 @@ export function cartReducer(state: CartState, action: Actions) {
         }
       })
 
+    case ActionTypes.INCREMENT_ITEM_QUANTITY:
+      return produce(state, (draft) => {
+        
+      })
+
     default:
       return state
   }
