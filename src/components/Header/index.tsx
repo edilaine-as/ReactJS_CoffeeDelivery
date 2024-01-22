@@ -1,4 +1,5 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 import logoCoffeeDelivery from '../../../public/logo-coffee-delivery.svg'
 import { useCart } from '../../hooks/useCart'
 import { HeaderContainer } from './styles'
@@ -8,17 +9,19 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logoCoffeeDelivery} alt="" />
+      <Link to="/">
+        <img src={logoCoffeeDelivery} alt="" />
+      </Link>
 
       <nav>
-        <a href="">
+        <a>
           <MapPin weight="fill" size={24} />
           <span>Porto Alegre, RS</span>
         </a>
-        <a href="">
+        <Link to={`order`}>
           <ShoppingCart weight="fill" size={24} />
           {cart.length !== 0? <span>{cart.length}</span> : null}
-        </a>
+        </Link>
       </nav>
     </HeaderContainer>
   )
