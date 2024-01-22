@@ -84,9 +84,13 @@ export const Order = styled.div`
   gap: 8px;
 
   > button {
-    background-color: ${(props) => props.theme['purple-dark']};
+    background-color: ${(props) => props.theme.purple};
     border: none;
     border-radius: 6px;
     padding: 8px;
+
+    &:hover {
+      background-color: ${(props) => props.theme['purple-dark']};
+    }
   }
 `

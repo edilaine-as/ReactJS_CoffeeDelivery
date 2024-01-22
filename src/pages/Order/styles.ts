@@ -158,6 +158,14 @@ export const RemoveButton = styled.button`
     text-transform: uppercase;
     ${mixins.fonts.buttonM}
   }
+
+  &:hover{
+    background-color: ${(props) => props.theme['base-hover']};
+
+    svg{
+      color: ${props => props.theme['purple-dark']}
+    }
+  }
 `
 
 export const InfoOrderContainer = styled.div`
@@ -198,4 +206,8 @@ export const ConfirmOrderButton = styled.button`
   text-transform: uppercase;
 
   cursor: pointer;
+
+  &:hover{
+    background-color: ${(props) => props.theme['yellow-dark']};
+  }
 `

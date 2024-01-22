@@ -21,6 +21,14 @@ export const Container = styled.label`
       color: ${(props) => props.theme['base-label']};
     }
 
-    ${mixins.fonts.textS}
+    ${mixins.fonts.textS};
+
+    &[data-state='focused'] {
+      border-color: ${(props) => props.theme['yellow-dark']};
+    }
+
+    &[data-state='blurred'] {
+      border-color: ${(props) => props.theme['base-button']};
+    }
   }
 `

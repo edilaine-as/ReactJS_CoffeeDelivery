@@ -26,4 +26,13 @@ export const Container = styled.label`
   svg {
     color: ${(props) => props.theme.purple};
   }
+
+  &[data-state='true']{
+    background-color: ${(props) => props.theme['purple-light']};
+    border: 1px solid ${(props) => props.theme.purple};
+  }
+
+  &:hover{
+    background-color: ${(props) => props.theme['base-hover']};
+  }
 `
