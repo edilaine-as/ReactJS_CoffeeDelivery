@@ -32,6 +32,15 @@ export function cartReducer(state: CartState, action: Actions) {
         }
       })
 
+    case ActionTypes.REMOVE_ITEM:
+      return produce(state, (draft) => {
+        const itemToRemove = draft.cart.findIndex(
+          (item) => item.id === action.payload.itemId
+        )
+
+          draft.cart.splice(itemToRemove, 1)
+      })
+
     case ActionTypes.INCREMENT_ITEM_QUANTITY:
       return produce(state, (draft) => {
         const itemToIncrement = draft.cart.find(

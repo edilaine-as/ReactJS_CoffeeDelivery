@@ -23,6 +23,7 @@ import { QuantityInput } from '../../components/QuantityInput'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { removeItemAction } from '../../reducers/cart/actions'
 
 type FormInputs = {
   cep: number
@@ -88,6 +89,10 @@ export function Order() {
 
   function handleDecrementQuantity(itemId: string){
     decrementCoffeeQuantity(itemId);
+  }
+
+  function handleItemRemove(itemId: string){
+    removeItemAction(itemId);
   }
 
   return (
@@ -211,7 +216,7 @@ export function Order() {
                                   decrementQuantity={() => handleDecrementQuantity(itemCart.id)}
                                 />
 
-                                <RemoveButton type="button">
+                                <RemoveButton type="button" onClick={() => handleItemRemove(itemCart.id)}>
                                   <Trash/>
                                   <span>Remover</span>
                                 </RemoveButton>
