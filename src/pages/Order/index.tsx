@@ -40,7 +40,27 @@ import { QuantityInput } from '../../components/QuantityInput'
 
 export function Order() {
   const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity } = useCart()
+  
+  const coffeesInCart = cart.map((itemCart) => {
+    const matchingItem = coffees.find((coffee) => coffee.id === itemCart.id);
+    
+    if(matchingItem){
+      return {
+        ...matchingItem,
+        quantity: itemCart.quantity,
+      }
+    }else{
+      throw new Error('Invalid coffee.')
+    }
+  })
 
+  let totalItemsCart = coffeesInCart.reduce((previousValue, currentItem) => {
+    return (previousValue += currentItem.price * currentItem.quantity)
+  }, 0);
+
+  const shippingPrice = 2.99                         
+  const totalWithShippingPrice = totalItemsCart + shippingPrice;
+  
   function handleIncrementQuantity(itemId: string){
     incrementCoffeeQuantity(itemId);
   }
@@ -50,6 +70,7 @@ export function Order() {
   }
 
   return (
+
     <Container>
       <InfoContainer>
         <h2>Complete seu pedido</h2>
@@ -169,15 +190,16 @@ export function Order() {
           <InfoOrderContainer>
             <div>
               <span>Total de itens</span>
-              <span>R$ 29,70</span>
+              <span>R$ {totalItemsCart.toFixed(2).toString().replace('.', ',')}
+            </span>
             </div>
             <div>
               <span>Entrega</span>
-              <span>R$ 3,50</span>
+              <span>R$ {shippingPrice.toFixed(2).toString().replace('.', ',')}</span>
             </div>
             <div>
               <span>Total</span>
-              <span>R$ 33,20</span>
+              <span>R$ {totalWithShippingPrice.toFixed(2).toString().replace('.', ',')}</span>
             </div>
           </InfoOrderContainer>
 
