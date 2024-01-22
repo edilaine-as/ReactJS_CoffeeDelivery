@@ -41,6 +41,27 @@ export const HeaderContainer = styled.header`
     a:last-child {
       background-color: ${(props) => props.theme['yellow-light']};
       color: ${(props) => props.theme['yellow-dark']};
+      position: relative;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        background-color: ${(props) => props.theme['yellow-dark']};
+        color: ${(props) => props.theme.white};
+        border-radius: 9999px;
+        transform: translate(50%, -50%);
+
+        ${mixins.fonts.textXS}
+      }
     }
   }
 `
