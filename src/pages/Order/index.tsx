@@ -17,26 +17,38 @@ import {
 } from './styles'
 import { TextInput } from '../../components/TextInput'
 import { RadioButton } from '../../components/RadioButton'
-// import { z } from 'zod'
-
-// const newOrder = z.object({
-//   cep: z.number({ invalid_type_error: 'Informe o CEP' }),
-//   street: z.string().min(1, 'Informe a rua'),
-//   number: z.string().min(1, 'Informe o número'),
-//   fullAddress: z.string(),
-//   neighborhood: z.string().min(1, 'Informe o bairro'),
-//   city: z.string().min(1, 'Informe a cidade'),
-//   state: z.string().min(1, 'Informe a UF'),
-//   paymentMethod: z.enum(['credit', 'debit', 'cash'], {
-//     invalid_type_error: 'Informe um método de pagamento',
-//   }),
-// })
-
-// export type OrderInfo = z.infer<typeof newOrder>
-
 import { useCart } from '../../hooks/useCart'
 import { coffees } from '../../../data.json'
 import { QuantityInput } from '../../components/QuantityInput'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+type FormInputs = {
+  cep: number
+  street: string
+  number: string
+  fullAddress: string
+  neighborhood: string
+  city: string
+  state: string
+  paymentMethod: 'credit' | 'debit' | 'cash'
+}
+
+const newOrder = z.object({
+  cep: z.number({ invalid_type_error: 'Informe o CEP' }),
+  street: z.string().min(1, 'Informe a rua'),
+  number: z.string().min(1, 'Informe o número'),
+  fullAddress: z.string(),
+  neighborhood: z.string().min(1, 'Informe o bairro'),
+  city: z.string().min(1, 'Informe a cidade'),
+  state: z.string().min(1, 'Informe a UF'),
+  paymentMethod: z.enum(['credit', 'debit', 'cash'], {
+    invalid_type_error: 'Informe um método de pagamento',
+  }),
+})
+
+export type OrderInfo = z.infer<typeof newOrder>
 
 export function Order() {
   const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity } = useCart()
@@ -60,6 +72,15 @@ export function Order() {
 
   const shippingPrice = 2.99                         
   const totalWithShippingPrice = totalItemsCart + shippingPrice;
+
+  const {
+    register,
+    watch,
+  } = useForm<FormInputs>({
+    resolver: zodResolver(newOrder),
+  })
+
+  const selectedPaymentMethod = watch('paymentMethod')
   
   function handleIncrementQuantity(itemId: string){
     incrementCoffeeQuantity(itemId);
@@ -89,30 +110,37 @@ export function Order() {
                 placeholder="CEP"
                 type="number"
                 containerProps={{ style: { gridArea: 'cep' } }}
+                {...register('cep')}
               />
               <TextInput
                 placeholder="Rua"
                 containerProps={{ style: { gridArea: 'street' } }}
+                {...register('street')}
               />
               <TextInput
                 placeholder="Número"
                 containerProps={{ style: { gridArea: 'number' } }}
+                {...register('number')}
               />
               <TextInput
                 placeholder="Complemento"
                 containerProps={{ style: { gridArea: 'fullAddress' } }}
+                {...register('fullAddress')}
               />
               <TextInput
                 placeholder="Bairro"
                 containerProps={{ style: { gridArea: 'neighborhood' } }}
+                {...register('neighborhood')}
               />
               <TextInput
                 placeholder="Cidade"
                 containerProps={{ style: { gridArea: 'city' } }}
+                {...register('city')}
               />
               <TextInput
                 placeholder="UF"
                 containerProps={{ style: { gridArea: 'state' } }}
+                {...register('state')}
               />
             </AddressForm>
           </AddressContainer>
@@ -130,15 +158,27 @@ export function Order() {
             </PaymentHeading>
             <PaymentOptions>
               <div>
-                <RadioButton isSelected={true} value="credit">
+                <RadioButton 
+                  isSelected={selectedPaymentMethod === 'credit'} 
+                  {...register('paymentMethod')}
+                  value="credit"
+                >
                   <CreditCard size={16} />
                   <span>Cartão de crédito</span>
                 </RadioButton>
-                <RadioButton isSelected={false} value="debit">
+                <RadioButton 
+                  isSelected={selectedPaymentMethod === 'debit'} 
+                  {...register('paymentMethod')}
+                  value="debit"
+                >
                   <Bank size={16} />
                   <span>Cartão de débito</span>
                 </RadioButton>
-                <RadioButton isSelected={false} value="cash">
+                <RadioButton 
+                  isSelected={selectedPaymentMethod === 'cash'} 
+                  {...register('paymentMethod')}
+                  value="cash"
+                >
                   <Bank size={16} />
                   <span>Dinheiro</span>
                 </RadioButton>

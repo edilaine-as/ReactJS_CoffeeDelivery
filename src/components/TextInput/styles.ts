@@ -9,26 +9,27 @@ export const Container = styled.label`
   border: 1px solid ${(props) => props.theme['base-button']};
   border-radius: 6px;
 
+  &[data-state='focused'] {
+    border-color: ${(props) => props.theme['yellow-dark']};
+  }
+
+  &[data-state='blurred'] {
+    border-color: ${(props) => props.theme['base-button']};
+  }
+
   input {
     color: ${(props) => props.theme['base-text']};
     width: 100%;
     background-color: transparent;
-    border: none;
     padding: 12px;
     outline: none;
+    border: none;
 
     &::placeholder {
       color: ${(props) => props.theme['base-label']};
     }
 
     ${mixins.fonts.textS};
-
-    &[data-state='focused'] {
-      border-color: ${(props) => props.theme['yellow-dark']};
-    }
-
-    &[data-state='blurred'] {
-      border-color: ${(props) => props.theme['base-button']};
-    }
+    
   }
 `
