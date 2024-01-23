@@ -1,12 +1,15 @@
 import { FocusEvent, HTMLAttributes, InputHTMLAttributes, forwardRef, useState, LegacyRef } from 'react'
-import { Box, Container } from './styles'
+import { FieldError } from 'react-hook-form/dist/types'
+import { Box, Container, ErrorMessage } from './styles'
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   containerProps?: HTMLAttributes<HTMLDivElement>
+  error?: FieldError
 }
 
 export const TextInput = forwardRef(function TextInput({
   containerProps,
+  error,
   onFocus,
   onBlur,
   ...rest
@@ -35,6 +38,10 @@ export const TextInput = forwardRef(function TextInput({
           {...rest} 
         />
       </Container>
+
+      {error?.message ? (
+        <ErrorMessage role="alert">{error.message}</ErrorMessage>
+      ) : null}
     </Box>
   )
 })

@@ -77,7 +77,8 @@ export function Order() {
   const {
     register,
     watch,
-    handleSubmit
+    handleSubmit,
+    formState: { errors }
   } = useForm<FormInputs>({
     resolver: zodResolver(newOrder),
   })
@@ -124,36 +125,43 @@ export function Order() {
                 placeholder="CEP"
                 type="number"
                 containerProps={{ style: { gridArea: 'cep' } }}
+                error={errors.cep}
                 {...register('cep', { valueAsNumber: true })}
               />
               <TextInput
                 placeholder="Rua"
                 containerProps={{ style: { gridArea: 'street' } }}
+                error={errors.street}
                 {...register('street')}
               />
               <TextInput
                 placeholder="Número"
                 containerProps={{ style: { gridArea: 'number' } }}
+                error={errors.number}
                 {...register('number')}
               />
               <TextInput
                 placeholder="Complemento"
                 containerProps={{ style: { gridArea: 'fullAddress' } }}
+                error={errors.fullAddress}
                 {...register('fullAddress')}
               />
               <TextInput
                 placeholder="Bairro"
                 containerProps={{ style: { gridArea: 'neighborhood' } }}
+                error={errors.neighborhood}
                 {...register('neighborhood')}
               />
               <TextInput
                 placeholder="Cidade"
                 containerProps={{ style: { gridArea: 'city' } }}
+                error={errors.city}
                 {...register('city')}
               />
               <TextInput
                 placeholder="UF"
                 containerProps={{ style: { gridArea: 'state' } }}
+                error={errors.state}
                 {...register('state')}
               />
             </AddressForm>

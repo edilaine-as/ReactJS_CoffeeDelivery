@@ -33,3 +33,10 @@ export const Container = styled.label`
     
   }
 `
+
+export const ErrorMessage = styled.p`
+  ${mixins.fonts.textXS};
+  font-weight: 400;
+  color: red;
+  padding-top: 3px;
+`
