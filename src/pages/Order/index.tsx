@@ -23,7 +23,6 @@ import { QuantityInput } from '../../components/QuantityInput'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { removeItemAction } from '../../reducers/cart/actions'
 
 type FormInputs = {
   cep: number
@@ -52,7 +51,7 @@ const newOrder = z.object({
 export type OrderInfo = z.infer<typeof newOrder>
 
 export function Order() {
-  const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity } = useCart()
+  const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity, removeItem } = useCart()
   
   const coffeesInCart = cart.map((itemCart) => {
     const matchingItem = coffees.find((coffee) => coffee.id === itemCart.id);
@@ -92,7 +91,7 @@ export function Order() {
   }
 
   function handleItemRemove(itemId: string){
-    removeItemAction(itemId);
+    removeItem(itemId);
   }
 
   return (
