@@ -52,7 +52,7 @@ export function cartReducer(state: CartState, action: Actions) {
         }
       })
 
-      case ActionTypes.DECREMENT_ITEM_QUANTITY:
+    case ActionTypes.DECREMENT_ITEM_QUANTITY:
       return produce(state, (draft) => {
         const itemToDecrement = draft.cart.find(
           (item) => item.id === action.payload.itemId
@@ -63,6 +63,20 @@ export function cartReducer(state: CartState, action: Actions) {
         }
       })
 
+    case ActionTypes.CHECKOUT_CART:
+      return produce(state, (draft) => {
+        const newOrder = {
+          id: new Date().getTime(),
+          items: state.cart,
+          ...action.payload.order,
+        }
+        draft.orders.push(newOrder)
+        draft.cart = []
+
+        action.payload.callback(`/order/${newOrder.id}/order-success`)
+      })
+      
+      
     default:
       return state
   }

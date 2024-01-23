@@ -3,7 +3,7 @@ import imgOrderSucess from '../../../public/img-order-sucess.svg'
 import { Info, Order, Container, Heading, InfoContent } from './styles'
 import { useTheme } from 'styled-components'
 
-export function OrderSucess() {
+export function OrderSuccess() {
   const theme = useTheme()
 
   return (

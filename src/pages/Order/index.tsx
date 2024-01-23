@@ -23,6 +23,7 @@ import { QuantityInput } from '../../components/QuantityInput'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { SubmitHandler } from 'react-hook-form/dist/types'
 
 type FormInputs = {
   cep: number
@@ -51,7 +52,7 @@ const newOrder = z.object({
 export type OrderInfo = z.infer<typeof newOrder>
 
 export function Order() {
-  const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity, removeItem } = useCart()
+  const { cart, incrementCoffeeQuantity, decrementCoffeeQuantity, removeItem, checkoutCart } = useCart()
   
   const coffeesInCart = cart.map((itemCart) => {
     const matchingItem = coffees.find((coffee) => coffee.id === itemCart.id);
@@ -76,6 +77,7 @@ export function Order() {
   const {
     register,
     watch,
+    handleSubmit
   } = useForm<FormInputs>({
     resolver: zodResolver(newOrder),
   })
@@ -94,13 +96,21 @@ export function Order() {
     removeItem(itemId);
   }
 
+  const handleOrderCartCheckout: SubmitHandler<FormInputs> = (data) => {
+    if (cart.length === 0) {
+      return alert('É preciso ter pelo menos um item no carrinho')
+    }
+
+    checkoutCart(data)
+  }
+
   return (
 
     <Container>
       <InfoContainer>
         <h2>Complete seu pedido</h2>
 
-        <form id="order">
+        <form id="order" onSubmit={handleSubmit(handleOrderCartCheckout)}>
           <AddressContainer>
             <AddressHeading>
               <MapPin size={22} />
@@ -114,7 +124,7 @@ export function Order() {
                 placeholder="CEP"
                 type="number"
                 containerProps={{ style: { gridArea: 'cep' } }}
-                {...register('cep')}
+                {...register('cep', { valueAsNumber: true })}
               />
               <TextInput
                 placeholder="Rua"
@@ -247,7 +257,7 @@ export function Order() {
             </div>
           </InfoOrderContainer>
 
-          <ConfirmOrderButton>
+          <ConfirmOrderButton type='submit' form='order'>
             Confirmar pedido
           </ConfirmOrderButton>
         </CartContainer>

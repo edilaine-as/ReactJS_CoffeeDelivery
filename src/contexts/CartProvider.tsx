@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react'
-import { addItemAction, decrementCoffeeQuantityAction, incrementCoffeeQuantityAction, removeItemAction } from '../reducers/cart/actions'
+import { useNavigate } from 'react-router-dom'
+import { OrderInfo } from '../pages/Order'
+import { addItemAction, checkoutCartAction, decrementCoffeeQuantityAction, incrementCoffeeQuantityAction, removeItemAction } from '../reducers/cart/actions'
 import { cartReducer, Item, Order } from '../reducers/cart/reducer'
 
 interface CartContextType {
@@ -9,6 +11,7 @@ interface CartContextType {
   removeItem: (id: Item['id']) => void
   incrementCoffeeQuantity: (id: Item['id']) => void
   decrementCoffeeQuantity: (id: Item['id']) => void
+  checkoutCart: (order: OrderInfo) => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -39,6 +42,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     },
   )
 
+  const navigate = useNavigate()
+  
   const { cart, orders } = cartState
 
   function addItem(item: Item) {
@@ -55,6 +60,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   function decrementCoffeeQuantity(itemId: Item['id']){
     dispatch(decrementCoffeeQuantityAction(itemId))
+  }
+
+  function checkoutCart(order: OrderInfo){
+    dispatch(checkoutCartAction(order, navigate))
   }
 
   useEffect(() => {
@@ -74,6 +83,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         orders,
         incrementCoffeeQuantity,
         decrementCoffeeQuantity,
+        checkoutCart,
       }}
     >
       {children}
