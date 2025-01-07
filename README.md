@@ -1,27 +1,86 @@
-# React + TypeScript + Vite
+# Coffee Delivery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Leia em Português](#português) | [Read in English](#english)
 
-Currently, two official plugins are available:
+## English
+Coffee Delivery is a web application designed to simplify the process of purchasing coffee. With it, you can browse a list of available coffees, add items to the cart, view selected products, and confirm your order. Currently, the application only has the front-end.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📝 Features
+* Display of a list of available coffees for purchase.
+* Shopping cart with selected items.
+* Order confirmation system.
 
-## Expanding the ESLint configuration
+### 🚀 Technologies Used
+* React: Library for building the user interface.
+* React Hook Form: Form management.
+* Zod: Data validation and typing.
+* Styled Components: Dynamic and component-based styling.
+* React Router DOM: Navigation between pages.
+* TypeScript: JavaScript superset for static typing.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 📦 Installation
+1. Clone the repository
+   ```
+    gh repo clone edilaine-as/ReactJS_CoffeeDelivery
+   ```
+2. Navigate to the project directory
+   ```
+    cd ReactJS_CoffeeDelivery
+   ```
+3. Install the dependencies
+   ```
+   npm i
+   ```
+4. Start the project
+   ```
+   npm run dev
+   ```
+   
+### 🤝 Contribution
+Feel free to contribute! Open an issue or submit a pull request.
 
-- Configure the top-level `parserOptions` property like this:
+### 📄 License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+## Português
+Coffee Delivery é uma aplicação web para facilitar a compra de cafés. Com ela, você pode navegar por uma lista de cafés disponíveis, adicionar itens ao carrinho, visualizar os produtos selecionados e confirmar o pedido. Atualmente, a aplicação possui apenas o front-end.
+
+### 📝 Funcionalidades
+* Exibição de uma lista de cafés disponíveis para compra.
+* Carrinho de compras com os itens selecionados.
+* Sistema para confirmação de pedidos.
+
+### 🚀 Tecnologias Utilizadas
+* React: Biblioteca para construção da interface do usuário.
+* React Hook Form: Gerenciamento de formulários.
+* Zod: Validação e tipagem de dados.
+* Styled Components: Estilização dinâmica e baseada em componentes.
+* React Router DOM: Navegação entre páginas.
+* TypeScript: Superset de JavaScript para tipagem estática.
+
+### 📦 Instalação
+1. Clone o repositório
+   ```
+    gh repo clone edilaine-as/ReactJS_CoffeeDelivery
+   ```
+2. Navegue até o diretório do projeto
+   ```
+    cd ReactJS_CoffeeDelivery
+   ```
+3. Instale as dependências
+   ```
+   npm i
+   ```
+4. Inicie o projeto
+   ```
+   npm run dev
+   ```
+   
+### 🤝 Contribuição
+Sinta-se à vontade para contribuir! Abra uma issue ou envie um pull request com suas melhorias.
+
+### 📄 Licença
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
